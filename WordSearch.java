@@ -1,5 +1,5 @@
 public class WordSearch{
-  private char[][]data;
+  private char[][] data;
   public WordSearch(int rows,int cols){
     char[][]data = new char[rows][cols];
     for (int i = 0; i < rows; i++){
@@ -19,7 +19,7 @@ public class WordSearch{
     String twoD = "";
     for (int i = 0; i < data.length; i++){
       for (int j = 0; j < data[i].length; j++){
-        twoD = twoD + data[i][j] + " ";
+        twoD += " " + data[i][j];
       }
       twoD = twoD + "\n";
     }
