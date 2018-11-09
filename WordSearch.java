@@ -1,3 +1,4 @@
+//import?
 public class WordSearch{
   private char[][] data;
   public WordSearch(int rows,int cols){
@@ -46,6 +47,20 @@ public class WordSearch{
       if ((data[row+i][col] == '_') || (word.charAt(i) == data[row+i][col])){
         data[row+i][col] = word.charAt(i);
       }
+    }
+    return true;
+  }
+  public boolean addWordDiagonal(String word, int row, int col){
+    if (word.length() + row > data.length || word.length() + col > data[0].length){
+      return false;
+    }
+    for (int i = 0; i < word.length(); i ++){
+      if (Character.isLetter(data[row + i][col + i]) && (! (data[row + i][col + i] == word.charAt(i)))){
+        return false;
+      }
+    }
+     for (int i = 0; i < word.length(); i ++){
+      data[row + i][col + i] = word.charAt(i);
     }
     return true;
   }
