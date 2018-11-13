@@ -1,4 +1,6 @@
-//ADD THE BARS IN THE WORDSEARCH WHEN YA CONSTRUCT IT!!!
+//stuff to do
+//do i need to make sure the stuff fits? like (-1,600) wont work
+//toString - add the bottom stuff (add words that were added to a list and then print the list out?)
 
 
 public class WordSearch{
@@ -25,7 +27,12 @@ public class WordSearch{
       for (int j = 1; j < data[i].length; j++){
         twoD += " " + data[i][j];
       }
-      twoD = twoD + "|\n|";
+      if(i+1 != data.length){
+        twoD = twoD + "|\n|";
+      }
+      else{
+        twoD += "|";
+      }
     }
     return twoD;
   }
@@ -82,6 +89,14 @@ public class WordSearch{
     }
     return true;
   }
+  //private boolean addWord(String word,int row, int col, int rowIncrement, int colIncrement){
+  //still have to add whether it fits or not
+  /**for (int i = 0; i < word.length(); i ++){
+    *  if (Character.isLetter(data[i * rowIncrement + row][i * colIncrement + col]) && (! (data[i * rowIncrement + row][i * colIncrement + col] == word.charAt(i)))){
+    *    return false;
+    *  }
+    *}//I know this part is good
+    */
 }
 
         
