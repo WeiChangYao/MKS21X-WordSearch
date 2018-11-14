@@ -1,8 +1,9 @@
 //stuff to do
-//do i need to make sure the stuff fits? like (-1,600) wont work
-//toString - add the bottom stuff (add words that were added to a list and then print the list out?)
+//text file stiff
+//
 import java.util.ArrayList;
 import java.util.Random;
+import java.io.File;
 public class WordSearch{
   private int seed;
   private Random randgen;
@@ -17,6 +18,15 @@ public class WordSearch{
       }
     }
   }
+  //public WordSearch( int rows, int cols, String fileName) {
+  //  data = new char[rows][cols];
+  //  for (int i = 0; i < rows; i++){
+  //    for (int j = 0; j < cols; j++){
+  //      data[i][j] = '_';
+  //    }
+  //  }
+  //add txt file to wordsToAdd = newArraylist...
+  //}
   private void clear(){
     for (int i = 0; i < data.length; i++){
       for (int j = 0; j < data[i].length; j++){
@@ -39,8 +49,8 @@ public class WordSearch{
       }
     }
     //twoD += "\nWords:";
-    //for (int i = 0; i < wordsAdded.size(); i++){
-    //  twoD += wordsAdded.get(i);
+    //for (int i = 0; i < wordsAdded.size(); i++){//don't do this if this is null
+    //  twoD += wordsAdded.get(i);//maybe try the easy way
     //}
     return twoD;
   }
@@ -93,7 +103,9 @@ public class WordSearch{
       }
     }
     for (int i = 0; i < word.length(); i ++){
-      data[row + i][col + i] = word.charAt(i);
+      if ((data[row+i][col] == '_') || (word.charAt(i) == data[row+i][col])){
+        data[row+i][col+i] = word.charAt(i);
+      }
     }
     return true;
   }
@@ -112,7 +124,8 @@ public class WordSearch{
       }
     }
     return true;
-  }  
+  }
+  //private void addAllWords() 
 }
 
         
