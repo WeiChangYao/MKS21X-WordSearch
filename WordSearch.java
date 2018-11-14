@@ -12,20 +12,14 @@ public class WordSearch{
   private char[][] data;
   public WordSearch(int rows,int cols){
     data = new char[rows][cols];
-    for (int i = 0; i < rows; i++){
-      for (int j = 0; j < cols; j++){
-        data[i][j] = '_';
-      }
-    }
+    clear();
   }
   //public WordSearch( int rows, int cols, String fileName) {
   //  data = new char[rows][cols];
-  //  for (int i = 0; i < rows; i++){
-  //    for (int j = 0; j < cols; j++){
-  //      data[i][j] = '_';
-  //    }
-  //  }
-  //add txt file to wordsToAdd = newArraylist...
+  //  clear();
+  //  wordsToAdd = getfile(fileName);//write that
+  //  wordsAdded = new ArrayList<String>();
+  //  randgen = new Random();//uhh 0-10k
   //}
   private void clear(){
     for (int i = 0; i < data.length; i++){
