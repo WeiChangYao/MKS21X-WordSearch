@@ -1,9 +1,8 @@
-//stuff to do
-//text file stiff
-//
 import java.util.ArrayList;
 import java.util.Random;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 public class WordSearch{
   private int seed;
   private Random randgen;
@@ -14,6 +13,18 @@ public class WordSearch{
     data = new char[rows][cols];
     clear();
   }
+  public ArrayList getfile(File fileName){
+    ArrayList scanFile = new ArrayList<String>();
+    File f = new File(fileName);
+    Scanner in = new Scanner(f);
+    while(in.hasNext()){
+      String word = in.nextLine();
+      scanFile.add(word);
+    }
+    return scanFile;
+  }
+      
+  
   //public WordSearch( int rows, int cols, String fileName) {
   //  data = new char[rows][cols];
   //  clear();
@@ -119,27 +130,27 @@ public class WordSearch{
     }
     return true;
   }
-  //private void addAllWords(){
-  //  for(int i = randgen.nextInt()%100; wordsToAdd.size() > 0; int i = randgen.nextInt()%100){//from 0 to size?
-  //    int rInc = randgen.nextInt()%100;//-1,0,1
-  //    if(rInc == 0){
-  //      int cInc = randgen.nextInt()%100;//-1,1
-  //    }
-  //    else {
-  //      int cInc = randgen.nextInt()%100;//-1,0,1
-  //    }
-  //    String randWord = wordsToAdd.get(i);
-  //    for (int c = 0, boolean added = false; c < 50 && boolean added == false; c++){
-  //      if (addWord(randWord, randgen.nextInt(), randgen.nextInt(), rInc, cInc) == true){
-  //        added = true;
-  //        wordsToAdd.remove(i);
-  //      } 
-  //      if (c == 50){
-  //        wordsToAdd.remove(i);
-  //      }
-  //    }
-  //  }
-  //}
+  /*private void addAllWords(){
+    for(int i = randgen.nextInt()%100; wordsToAdd.size() > 0; int i = randgen.nextInt()%100){//from 0 to size?
+      int rInc = randgen.nextInt()%100;//-1,0,1
+      if(rInc == 0){
+        int cInc = randgen.nextInt()%100;//-1,1
+      }
+      else {
+        int cInc = randgen.nextInt()%100;//-1,0,1
+      }
+      String randWord = wordsToAdd.get(i);
+      for (int c = 0, boolean added = false; c < 50 && boolean added == false; c++){
+        if (addWord(randWord, randgen.nextInt(), randgen.nextInt(), rInc, cInc) == true){
+          added = true;
+          wordsToAdd.remove(i);
+        } 
+        if (c == 50){
+          wordsToAdd.remove(i);
+        }
+      }
+    }
+  }*/
 }
 
         
