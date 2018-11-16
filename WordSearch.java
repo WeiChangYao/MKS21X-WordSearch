@@ -3,6 +3,7 @@ import java.util.Random;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+
 public class WordSearch{
   private int seed;
   private Random randgen;
@@ -130,7 +131,7 @@ public class WordSearch{
     }
     return true;
   }
-  /*private void addAllWords(){
+  private void addAllWords(){
     for(int i = randgen.nextInt()%wordsToAdd.size()/2+wordsToAdd.size(); wordsToAdd.size() > 0; int i = randgen.nextInt()%wordsToAdd.size()/2+wordsToAdd.size()){//from 0 to size?
       int rInc = randgen.nextInt()%2;//-1,0,1
       if(rInc == 0){
@@ -150,7 +151,12 @@ public class WordSearch{
         }
       }
     }
-  }*/
+  }
+  public static void main(String[]args){
+    if(args.length < 3){
+      system.out.println("You gotta put three things, rows, cols, gilename. You can optioally put in a seed and if you put in a seed, you can put in 'key' to cheat");
+      system.exit(0);
+    }
 }
 
         
