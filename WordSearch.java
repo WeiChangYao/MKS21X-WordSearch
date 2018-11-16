@@ -131,16 +131,16 @@ public class WordSearch{
     return true;
   }
   /*private void addAllWords(){
-    for(int i = randgen.nextInt()%100; wordsToAdd.size() > 0; int i = randgen.nextInt()%100){//from 0 to size?
-      int rInc = randgen.nextInt()%100;//-1,0,1
+    for(int i = randgen.nextInt()%wordsToAdd.size()/2+wordsToAdd.size(); wordsToAdd.size() > 0; int i = randgen.nextInt()%wordsToAdd.size()/2+wordsToAdd.size()){//from 0 to size?
+      int rInc = randgen.nextInt()%2;//-1,0,1
       if(rInc == 0){
-        int cInc = randgen.nextInt()%100;//-1,1
+        int cInc = 1;//-1,1
       }
       else {
-        int cInc = randgen.nextInt()%100;//-1,0,1
+        int cInc = randgen.nextInt()%2;//-1,0,1
       }
       String randWord = wordsToAdd.get(i);
-      for (int c = 0, boolean added = false; c < 50 && boolean added == false; c++){
+      for (int c = 0, boolean added = false; c < 50 && added == false; c++){
         if (addWord(randWord, randgen.nextInt(), randgen.nextInt(), rInc, cInc) == true){
           added = true;
           wordsToAdd.remove(i);
