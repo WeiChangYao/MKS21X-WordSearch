@@ -3,7 +3,6 @@ import java.util.Random;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
 public class WordSearch{
   private int seed;
   private Random randgen;
@@ -14,7 +13,7 @@ public class WordSearch{
     data = new char[rows][cols];
     clear();
   }
-  public ArrayList getfile(File fileName){
+  /*public ArrayList getfile(File fileName){
     ArrayList scanFile = new ArrayList<String>();
     File f = new File(fileName);
     Scanner in = new Scanner(f);
@@ -23,7 +22,7 @@ public class WordSearch{
       scanFile.add(word);
     }
     return scanFile;
-  }
+  }*/
       
   
   //public WordSearch( int rows, int cols, String fileName) {
@@ -99,24 +98,9 @@ public class WordSearch{
     }
     return true;
   }
-  public boolean addWordDiagonal(String word, int row, int col){
-    if (word.length() + row > data.length || word.length() + col > data[0].length){
-      return false;
-    }
-    for (int i = 0; i < word.length(); i ++){
-      if (Character.isLetter(data[row + i][col + i]) && (! (data[row + i][col + i] == word.charAt(i)))){
-        return false;
-      }
-    }
-    for (int i = 0; i < word.length(); i ++){
-      if ((data[row+i][col] == '_') || (word.charAt(i) == data[row+i][col])){
-        data[row+i][col+i] = word.charAt(i);
-      }
-    }
-    return true;
-  }
-  private boolean addWord(String word,int row, int col, int rowIncrement, int colIncrement){
-    if (word.length() + row * rowIncrement > data.length || word.length() + col * colIncrement > data[0].length || word.length() + row * rowIncrement < 0 || word.length() + col * colIncrement < 0){
+
+  public boolean addWord(String word,int row, int col, int rowIncrement, int colIncrement){
+    if (word.length()* rowIncrement + row * rowIncrement > data.length || word.length()* colIncrement + col * colIncrement > data[0].length || word.length()* rowIncrement + row + 1< 0 || word.length()* colIncrement + col + 1< 0 ){
       return false;
     }
     for (int i = 0; i < word.length(); i ++){
@@ -131,7 +115,7 @@ public class WordSearch{
     }
     return true;
   }
-  private void addAllWords(){
+  /*private void addAllWords(){
     for(int i = randgen.nextInt()%wordsToAdd.size()/2+wordsToAdd.size(); wordsToAdd.size() > 0; int i = randgen.nextInt()%wordsToAdd.size()/2+wordsToAdd.size()){//from 0 to size?
       int rInc = randgen.nextInt()%2;//-1,0,1
       if(rInc == 0){
@@ -151,12 +135,7 @@ public class WordSearch{
         }
       }
     }
-  }
-  public static void main(String[]args){
-    if(args.length < 3){
-      system.out.println("You gotta put three things, rows, cols, gilename. You can optioally put in a seed and if you put in a seed, you can put in 'key' to cheat");
-      system.exit(0);
-    }
+  }*/
 }
 
         
