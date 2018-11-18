@@ -13,7 +13,7 @@ public class WordSearch{
     data = new char[rows][cols];
     clear();
   }
-  public ArrayList getfile(String fileName) throws FileNotFoundException{
+  public ArrayList getfile(String fileName) throws FileNotFoundException{//is this right???
     File f = new File(fileName);
     Scanner in = new Scanner(f);
     ArrayList<String> scanFile = new ArrayList<String>();
@@ -26,7 +26,7 @@ public class WordSearch{
   public WordSearch( int rows, int cols, String fileName) {
     data = new char[rows][cols];
     clear();
-    wordsToAdd = getfile(fileName);//write that
+    wordsToAdd = getfile(fileName);
     wordsAdded = new ArrayList<String>();
     randgen = new Random();//uhh 0-10k
     addAllWords();

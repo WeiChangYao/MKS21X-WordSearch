@@ -10,7 +10,7 @@ public class DriverV {
   private ArrayList<String>wordsAdded;
   private char[][] data;
 
-  public ArrayList getfile(String fileName) throws FileNotFoundException{//is this right???
+  public static ArrayList getfile(String fileName) throws FileNotFoundException{//is this right???
     File f = new File(fileName);
     Scanner in = new Scanner(f);
     ArrayList<String> cat = new ArrayList<String>();
@@ -37,10 +37,12 @@ public class DriverV {
     try{
 
        //ArrayList<String> scanFile = getfile(fileName);
- foo(fileName);
-    //for (int i = 0; getfile(fileName).size() > i; i++){
-    //System.out.println(getfile(fileName).get(i));
+ //foo(fileName);
+ getfile(fileName);
+    for (int i = 0; getfile(fileName).size() > i; i++){
+    System.out.println(getfile(fileName).get(i));
   }
+}
       
     catch(FileNotFoundException e){
       System.out.println("File not found: " + fileName);
