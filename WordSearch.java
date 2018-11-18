@@ -115,18 +115,21 @@ public class WordSearch{
     }
     return true;
   }
-  /*private void addAllWords(){
-    for(int i = randgen.nextInt()%wordsToAdd.size()/2+wordsToAdd.size(); wordsToAdd.size() > 0; int i = randgen.nextInt()%wordsToAdd.size()/2+wordsToAdd.size()){//from 0 to size?
-      int rInc = randgen.nextInt()%2;//-1,0,1
-      if(rInc == 0){
-        int cInc = 1;//-1,1
+  public void addAllWords(){
+    for(int i = 0; wordsToAdd.size() > 0; i++){//from 0 to size?
+      int rInc = 0;
+      int cInc = 0;
+      //i = randgen.nextInt(Integer.MAX_VALUE)%wordsToAdd.size();
+      while (rInc == 0 && cInc == 0){
+        rInc = randgen.nextInt()%2;
+        cInc = randgen.nextInt()%2;
       }
-      else {
-        int cInc = randgen.nextInt()%2;//-1,0,1
-      }
+
       String randWord = wordsToAdd.get(i);
-      for (int c = 0, boolean added = false; c < 50 && added == false; c++){
-        if (addWord(randWord, randgen.nextInt(), randgen.nextInt(), rInc, cInc) == true){
+      int c;
+      boolean added;
+      for ( c = 0,added = false; c < 50 && added == false; c++){
+        if (addWord(randWord, randgen.nextInt()%data.length, randgen.nextInt()%data[0].length, rInc, cInc) == true){
           added = true;
           wordsToAdd.remove(i);
         } 
@@ -135,7 +138,7 @@ public class WordSearch{
         }
       }
     }
-  }*/
+  }
 }
 
         
