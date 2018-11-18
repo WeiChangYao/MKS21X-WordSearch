@@ -1,8 +1,8 @@
-import java.util.ArrayList;
-import java.util.Random;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Random;
 public class WordSearch{
   private int seed;
   private Random randgen;
@@ -13,25 +13,25 @@ public class WordSearch{
     data = new char[rows][cols];
     clear();
   }
-  /*public ArrayList getfile(File fileName){
-    ArrayList scanFile = new ArrayList<String>();
+  public ArrayList getfile(String fileName) throws FileNotFoundException{
     File f = new File(fileName);
     Scanner in = new Scanner(f);
-    while(in.hasNext()){
-      String word = in.nextLine();
-      scanFile.add(word);
+    ArrayList<String> scanFile = new ArrayList<String>();
+    while (in.hasNext()){
+      scanFile.add(in.next());
     }
     return scanFile;
-  }*/
+  }
       
-  
-  //public WordSearch( int rows, int cols, String fileName) {
-  //  data = new char[rows][cols];
-  //  clear();
-  //  wordsToAdd = getfile(fileName);//write that
-  //  wordsAdded = new ArrayList<String>();
-  //  randgen = new Random();//uhh 0-10k
-  //}
+  public WordSearch( int rows, int cols, String fileName) {
+    data = new char[rows][cols];
+    clear();
+    wordsToAdd = getfile(fileName);//write that
+    wordsAdded = new ArrayList<String>();
+    randgen = new Random();//uhh 0-10k
+    addAllWords();
+  }
+
   private void clear(){
     for (int i = 0; i < data.length; i++){
       for (int j = 0; j < data[i].length; j++){
@@ -124,7 +124,6 @@ public class WordSearch{
         rInc = randgen.nextInt()%2;
         cInc = randgen.nextInt()%2;
       }
-
       String randWord = wordsToAdd.get(i);
       int c;
       boolean added;
