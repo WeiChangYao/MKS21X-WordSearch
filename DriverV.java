@@ -20,6 +20,16 @@ public class DriverV {
     return cat;
   }
 
+  public static void foo(String fileName) throws FileNotFoundException{
+      File f = new File(fileName);//can combine
+      Scanner in = new Scanner(f);//into one line
+      while(in.hasNext()){
+        String word = in.next();
+        //do something with word
+        System.out.println(word);
+}
+    }
+
   public static void main(String[]args){
 
     String fileName = "file.txt";//if you get rid of the comment , turn the file.txt to fileName down there
@@ -27,12 +37,12 @@ public class DriverV {
     try{
 
        //ArrayList<String> scanFile = getfile(fileName);
-
-    for (int i = 0; getfile(fileName).size() > i; i++){
-    System.out.println(getfile(fileName).get(i));
+ foo(fileName);
+    //for (int i = 0; getfile(fileName).size() > i; i++){
+    //System.out.println(getfile(fileName).get(i));
   }
       
-    }catch(FileNotFoundException e){
+    catch(FileNotFoundException e){
       System.out.println("File not found: " + fileName);
       //e.printStackTrace();
       System.exit(1);
