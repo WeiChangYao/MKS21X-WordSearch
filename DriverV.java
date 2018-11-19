@@ -43,7 +43,7 @@ public class DriverV {
     System.out.println(getfile(fileName).get(i));
   }
 }
-      
+      //REMEMBER TO DO THIS IN THE MAINSTRING!!!!
     catch(FileNotFoundException e){
       System.out.println("File not found: " + fileName);
       //e.printStackTrace();

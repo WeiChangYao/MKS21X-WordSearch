@@ -3,12 +3,12 @@ public class Driver
   public static void main(String[] args)
   {
     System.out.println("testing Constructor");
-    WordSearch testCase = new WordSearch(3, 5);
+    WordSearch testCase = new WordSearch(10, 10);
     System.out.println("should print out 3 by 5 array with underscores");
     System.out.println(testCase.toString());
     System.out.println("\n\n\n");
-    System.out.println("Testing addWordHorizontal");
-    testCase.addWordHorizontal("hey", 0, 0);
+    System.out.println("Testing addWord");
+    testCase.addWord("hey", 0, 4, 1, 1);
     System.out.println("top row should say hey");
     System.out.println(testCase.toString());
     System.out.println("\n\n\n");

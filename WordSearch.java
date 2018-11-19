@@ -23,7 +23,7 @@ public class WordSearch{
     return scanFile;
   }
       
-  public WordSearch( int rows, int cols, String fileName) {
+  public WordSearch( int rows, int cols, String fileName) throws FileNotFoundException{//throw it here right???
     data = new char[rows][cols];
     clear();
     wordsToAdd = getfile(fileName);
@@ -53,10 +53,10 @@ public class WordSearch{
         twoD += "|";
       }
     }
-    //twoD += "\nWords:";
-    //for (int i = 0; i < wordsAdded.size(); i++){//don't do this if this is null
-    //  twoD += wordsAdded.get(i);//maybe try the easy way
-    //}
+    twoD += "\nWords:";
+    for (int i = 0; i < wordsAdded.size(); i++){//don't do this if this is null
+      twoD += " " + wordsAdded.get(i);//maybe try the easy way
+    }
     return twoD;
   }
 
@@ -116,24 +116,28 @@ public class WordSearch{
     return true;
   }
   public void addAllWords(){
-    for(int i = 0; wordsToAdd.size() > 0; i++){//from 0 to size?
+    for(int i = 0; wordsToAdd.size() > 0; i++){//REPLACE i WITH 0!! TAKES TOO LONG THO!!!
       int rInc = 0;
       int cInc = 0;
-      //i = randgen.nextInt(Integer.MAX_VALUE)%wordsToAdd.size();
+      i = randgen.nextInt(Integer.MAX_VALUE)%wordsToAdd.size();//REMOVE THIS!!
       while (rInc == 0 && cInc == 0){
         rInc = randgen.nextInt()%2;
         cInc = randgen.nextInt()%2;
       }
       String randWord = wordsToAdd.get(i);
-      int c;
+      int c = 0;
       boolean added;
-      for ( c = 0,added = false; c < 50 && added == false; c++){
-        if (addWord(randWord, randgen.nextInt()%data.length, randgen.nextInt()%data[0].length, rInc, cInc) == true){
+      for (added = false; c < 10 && added == false; c++){
+        if (addWord(randWord, randgen.nextInt(Integer.MAX_VALUE)%data.length, randgen.nextInt(Integer.MAX_VALUE)%data[0].length, rInc, cInc) == true){
           added = true;
           wordsToAdd.remove(i);
+          wordsAdded.add(randWord);
+          i = i-1;
+          c = 0;
         } 
-        if (c == 50){
+        if (c == 10){
           wordsToAdd.remove(i);
+          i = i-1;
         }
       }
     }
