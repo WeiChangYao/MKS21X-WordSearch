@@ -154,10 +154,34 @@ public class WordSearch{
       }
     }
   }
+  public static boolean isANum(String str){  
+    try{  
+      int d = Integer.parseInt(str);  
+    }catch(NumberFormatException e){  
+      return false;  
+    }  
+    return true;  
+  }
   
+  //FILL METHOD
+  public static void fill(WordSearch a){
+    for (i = 0;
+
   public static void main(String[] args){
 
-    if (args.length < 3 || Integer.parseInt(args[3]) > 10000) {
+    if (args.length < 3) {
+      System.out.println("usage: java WordSearch [rows cols filename [randomSeed [answers]]]");
+      System.exit(1);
+    }
+    if (args.length > 3 && (Integer.parseInt(args[3]) > 10000 || Integer.parseInt(args[3]) < 0)) {
+      System.out.println("usage: java WordSearch [rows cols filename [randomSeed [answers]]]");
+      System.exit(1);
+    }
+    if (!(isANum(args[0])) || !(isANum(args[1]))){
+      System.out.println("usage: java WordSearch [rows cols filename [randomSeed [answers]]]");
+      System.exit(1);
+    }
+    if (Integer.parseInt(args[0]) < 0 || Integer.parseInt(args[1]) < 0) {
       System.out.println("usage: java WordSearch [rows cols filename [randomSeed [answers]]]");
       System.exit(1);
     }
