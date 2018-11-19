@@ -28,7 +28,18 @@ public class WordSearch{
     clear();
     wordsToAdd = getfile(fileName);
     wordsAdded = new ArrayList<String>();
-    randgen = new Random();//uhh 0-10k
+    seed = (int)(Math.random()*10000);
+    randgen = new Random(seed);//uhh 0-10k
+    addAllWords();
+  }
+
+  public WordSearch( int rows, int cols, String fileName, int see) throws FileNotFoundException{//throw it here right???
+    data = new char[rows][cols];
+    clear();
+    wordsToAdd = getfile(fileName);
+    wordsAdded = new ArrayList<String>();
+    seed = see;
+    randgen = new Random(seed);//uhh 0-10k
     addAllWords();
   }
 
@@ -57,6 +68,7 @@ public class WordSearch{
     for (int i = 0; i < wordsAdded.size(); i++){//don't do this if this is null
       twoD += " " + wordsAdded.get(i);//maybe try the easy way
     }
+    twoD += " (seed: " + seed +")";
     return twoD;
   }
 
@@ -141,6 +153,21 @@ public class WordSearch{
         }
       }
     }
+  }
+  
+  public static void main(String[] args){
+    String fileName = args[2];
+     
+    try{
+
+    WordSearch testCase = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[3]);
+    System.out.println(testCase.toString()); 
+
+    }catch(FileNotFoundException e){
+      System.out.println("File not found: " + fileName);
+      System.exit(1);
+    }
+   
   }
 }
 
