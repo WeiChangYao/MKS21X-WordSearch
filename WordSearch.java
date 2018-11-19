@@ -156,12 +156,33 @@ public class WordSearch{
   }
   
   public static void main(String[] args){
-    String fileName = args[2];
-     
-    try{
 
-    WordSearch testCase = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[3]);
-    System.out.println(testCase.toString()); 
+    if (args.length < 3 || Integer.parseInt(args[3]) > 10000) {
+      System.out.println("usage: java WordSearch [rows cols filename [randomSeed [answers]]]");
+      System.exit(1);
+    }
+
+    String fileName = args[2];
+    try{
+      if (args.length == 3){
+        WordSearch perfectAvg = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2]);
+        System.out.println(perfectAvg.toString()); 
+      }
+      if (args.length == 4){
+        WordSearch perfectAvg = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]));
+        System.out.println(perfectAvg.toString()); 
+      }
+      if (args.length > 4 && args[4].equals("key")){
+        WordSearch perfectAvg = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]));
+        System.out.println(perfectAvg.toString()); 
+        System.out.println("fill _ with  ");
+      }
+      if (args.length > 4 && !(args[4].equals("key"))){
+        WordSearch perfectAvg = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]));
+        System.out.println(perfectAvg.toString()); 
+        System.out.println("same as when length == 4!!");
+      }
+       
 
     }catch(FileNotFoundException e){
       System.out.println("File not found: " + fileName);
