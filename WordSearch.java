@@ -163,9 +163,26 @@ public class WordSearch{
     return true;  
   }
   
-  //FILL METHOD
-  public static void fill(WordSearch a){
-    for (i = 0;
+  //FILL METHODS!!
+  public static void charFill(WordSearch a){
+    for (int i = 0; i < a.data.length; i++){
+      for (int j = 0; j < a.data[i].length; j++){
+        if(a.data[i][j] == '_'){
+          char ch = (char)(a.randgen.nextInt(26) + 'a');
+          a.data[i][j] = ch;
+        }
+      }
+    }
+  }
+  public static void keyFill(WordSearch a){
+    for (int i = 0; i < a.data.length; i++){
+      for (int j = 0; j < a.data[i].length; j++){
+        if(a.data[i][j] == '_'){
+          a.data[i][j] = ' ';
+        }
+      }
+    }
+  }
 
   public static void main(String[] args){
 
@@ -190,21 +207,23 @@ public class WordSearch{
     try{
       if (args.length == 3){
         WordSearch perfectAvg = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2]);
+        charFill(perfectAvg);
         System.out.println(perfectAvg.toString()); 
       }
       if (args.length == 4){
         WordSearch perfectAvg = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]));
+        charFill(perfectAvg);
         System.out.println(perfectAvg.toString()); 
       }
       if (args.length > 4 && args[4].equals("key")){
         WordSearch perfectAvg = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]));
+        keyFill(perfectAvg);
         System.out.println(perfectAvg.toString()); 
-        System.out.println("fill _ with  ");
       }
       if (args.length > 4 && !(args[4].equals("key"))){
         WordSearch perfectAvg = new WordSearch(Integer.parseInt(args[0]), Integer.parseInt(args[1]), args[2], Integer.parseInt(args[3]));
+        charFill(perfectAvg);
         System.out.println(perfectAvg.toString()); 
-        System.out.println("same as when length == 4!!");
       }
        
 
